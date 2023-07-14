@@ -1,5 +1,5 @@
 const express = require("express");
-require("dotenv").config();
+// require("dotenv").config();
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -30,7 +30,7 @@ async function main() {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use('/uploads',express.static(__dirname+'/uploads'));
 app.get("/test", (req, res) => {
   res.json("test ok");
@@ -114,7 +114,11 @@ app.get('/post',async(req,res)=>{
   const posts=await Post.find().sort({createdAt: -1}).limit(20);
   res.json(posts);
 })
-app.listen(4000, () => {
-  console.log("successfully connected on server 4000");
+// app.listen(4000, () => {
+//   console.log("successfully connected on server 4000");
+// });
+
+app.listen(process.env.PORT, () => {
+  console.log("Server running...");
 });
 
