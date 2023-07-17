@@ -48,12 +48,14 @@ app.post("/signup", async (req, res) => {
 
 app.post("/signin", async (req, res) => {
   const { username, password } = req.body;
+  console.log(username);
   const userDoc = await User.findOne({ username });
   if (userDoc && userDoc.password === password) {
     // user login
     jwt.sign({ username, id: userDoc._id }, process.env.SECRET, {}, (err, token) => {
       if (err) throw err;
       res.cookie("token", token).json("ok");
+      console.log(token);
     });
   } else {
     // wrong ceredential
