@@ -67,6 +67,8 @@ app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   const a = token ?? "";
 
+  console.log(token); //token check krte h aa rha ki nhi, ok ? hmm
+
   console.log(a.length);
   if (a.length != 0) {
     jwt.verify(token, process.env.SECRET, {}, (err, info) => {
