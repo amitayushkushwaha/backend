@@ -64,7 +64,8 @@ app.post("/signin", async (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  const { token } = req.signedCookies;
+  console.log(req.body);
+  const { token } = req.cookies;
   const a = token ?? "";
 
   console.log(token); 
