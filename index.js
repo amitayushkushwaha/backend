@@ -30,7 +30,7 @@ async function main() {
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use('/uploads',express.static(__dirname+'/uploads'));
 app.get("/test", (req, res) => {
   res.json("test ok");
