@@ -64,10 +64,10 @@ app.post("/signin", async (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  const { token } = req.cookies.jwt;
+  const { token } = req.signedCookies;
   const a = token ?? "";
 
-  console.log(token); //token check krte h aa rha ki nhi, ok ? hmm
+  console.log(token); 
 
   console.log(a.length);
   if (a.length != 0) {
