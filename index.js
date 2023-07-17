@@ -64,7 +64,7 @@ app.post("/signin", async (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  const { token } = req.cookies;
+  const { token } = req.cookies.jwt;
   const a = token ?? "";
 
   console.log(token); //token check krte h aa rha ki nhi, ok ? hmm
